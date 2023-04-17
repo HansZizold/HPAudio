@@ -69,6 +69,3 @@ gem 'bootstrap', '~> 5.1.3'
 
 # Ruby Linter
 gem 'rubocop', '>= 1.0', '< 2.0'
-
-# Rails Linter
-gem 'rubocop-rails', '~> 2.19', '>= 2.19.1'
