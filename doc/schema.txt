@@ -1,0 +1,6 @@
+rails g model User name:string role:string photo:attachment
+rails g model Artist name:string country:string type:string photo:attachment
+rails g model Album artist:references title:string year:integer photo:attachment
+rails g model Song artist:references album:references title:string genre:string year:integer decade:integer pos20:integer pos40:integer pos80:integer pos16:integer pos32:integer 
+
+
