@@ -1,0 +1,27 @@
+MODEL CREATION
+rails g model User name:string role:string photo:attachment
+rails g model Artist name:string country:string type:string photo:attachment
+rails g model Album artist:references title:string year:integer photo:attachment
+rails g model Song artist:references album:references title:string genre:string year:integer decade:integer pos20:integer pos40:integer pos80:integer pos16:integer pos32:integer 
+
+MODEL MODIFICATIONS
+CHECK SPECIFIC CHANGES IN DB FILES
+rails generate migration ChangeColumnName
+rails generate migration AddColumnName
+rails generate migration PointsDefaultValues
+rails generate migration RemoveAlbumFromSongs album:references
+rails generate migration AddAlbumToSongs album:string
+
+
+
+DATA
+art1 = Artist.create(name: 'Madonna', country: 'USA', artist_type: 'Female Solo')
+art2 = Artist.create(name: 'The Beatles', country: 'UK', artist_type: 'Group')
+art3 = Artist.create(name: 'Michael Jackson', country: 'USA', artist_type: 'Male Solo')
+
+alb1 = Album.create(artist: art1, title: 'Like a Prayer', year: 1989)
+alb1 = Album.create(artist: art2, title: 'Abbey Road', year: 1969)
+alb1 = Album.create(artist: art3, title: 'Thriller', year: 1982)
+
+song1 = Song.create(artist: art1, album: alb1, title: 'Like a Prayer', genre: 'Power Pop', year: 1989, pos20: 1)
+

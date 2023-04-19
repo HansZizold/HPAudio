@@ -62,6 +62,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # Detect N+1 problem
+  gem 'bullet'
 end
 
 # Bootstrap
@@ -69,3 +72,10 @@ gem 'bootstrap', '~> 5.1.3'
 
 # Ruby Linter
 gem 'rubocop', '>= 1.0', '< 2.0'
+
+# Authentication
+gem 'devise'
+
+gem 'cssbundling-rails', '~> 1.1'
+
+gem 'jsbundling-rails', '~> 1.1'
