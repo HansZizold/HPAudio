@@ -1,7 +1,21 @@
 class Song < ApplicationRecord
   belongs_to :artist
-  belongs_to :album
+  
+  before_save :set_decade
+  after_save :update_artist_points
+  
+  validates :title, :genre, :year, :album, presence: true
+  validates :title, uniqueness: { scope: :artist_id }
+  validates :year, numericality: { only_integer: true, greater_than_or_equal_to: 1000, less_than_or_equal_to: 3000 }
+  
 
-  validates :title, :genre, :year, presence: true
-  validates :year, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  private
+  
+  def set_decade
+    self.decade = year - (year % 10)
+  end
+
+  def update_artist_points
+    artist.update(points: artist.points + 21 - pos20.to_i) if artist.present?
+  end  
 end

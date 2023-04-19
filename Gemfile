@@ -75,3 +75,7 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 
 # Authentication
 gem 'devise'
+
+gem "cssbundling-rails", "~> 1.1"
+
+gem "jsbundling-rails", "~> 1.1"
