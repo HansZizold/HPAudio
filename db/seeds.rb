@@ -7,7 +7,10 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # Create a user
-user = User.find_or_create_by(name: 'Hans Zizold', email: 'hans@mail.com', role: 'admin')
+user = User.find_or_create_by(name: 'Hans Zizold', email: 'hans@mail.com', role: 'admin') do |u|
+  u.password = '12345678'
+  u.password_confirmation = '12345678'
+end
 
 # Create multiple artists using an array of data
 artists_data = [
