@@ -1,0 +1,31 @@
+<%= stylesheet_link_tag('artist_index') %>
+
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>">
+    <%= value %>
+  </div>
+<% end %>
+
+<h1>Artists</h1>
+
+<div>
+  <p>NAME - COUNTRY - TYPE - POINTS</p>
+  <% @artists.each do |artist| %>
+    <% if artist.photo.attached? %>
+      <div>
+        <%= image_tag artist.photo %>
+      </div>
+    <% end %>
+    <div>
+      <p><%= artist.name %> - <%= artist.country %> - <%= artist.artist_type %> - <%= artist.points %></p>
+    </div>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to new_artist_path do %>
+    <button>
+      <p>CREATE NEW ARTIST</p>
+    </button>
+  <% end %>
+</div>

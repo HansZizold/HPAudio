@@ -1,0 +1,30 @@
+<div>
+  <h2>CREATE A NEW ARTIST</h2>
+</div>
+
+<%= form_with model: @artist, url: artists_path, method: :post do |form| %>
+  <div>
+    <%= form.text_field :name, placeholder: "Name" %>
+  </div>
+  <div>
+    <%= form.text_field :country, placeholder: "Country" %>
+  </div>
+  <div>
+    <%= form.text_field :artist_type, placeholder: "Type" %>
+  </div>
+  <div>
+    <%= form.label :photo, "Artist Image" %>
+    <%= form.file_field :photo, placeholder: "Image Name" %>
+  </div>
+
+  <div>
+    <div>
+      <%= form.submit "SAVE ARTIST" %>
+    </div>
+    <%= link_to artists_path do %>
+      <button>
+        <p>ARTISTS PAGE</p>
+      </button>
+    <% end %>
+  </div>
+<% end %>
