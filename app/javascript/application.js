@@ -2,3 +2,9 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import * as bootstrap from "bootstrap"
+
+$(document).ready(function() {
+  setTimeout(function(){
+    $('.alert').addClass('fade');
+  }, 3000);
+});
